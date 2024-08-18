@@ -1,9 +1,11 @@
 # Load necessary libraries
+```
 library(readxl)
 library(dplyr)
 library(lubridate)
 library(ggplot2)
-
+```
+```
 # Load the data
 file_path <- "C:/Users/ou_ba/Downloads/2023-11-Elec-train.xlsx"
 # replace with your file path
@@ -17,7 +19,9 @@ data$Timestamp <- as.POSIXct(data$Timestamp, format="%m/%d/%Y %H:%M")
 
 # Remove the first line of data
 data <- data[-1, ]
+```
 
+```
 # Convert the relevant Power rows to NA
 data$Power[4603:4613] <- NA
 
@@ -36,7 +40,9 @@ predicted_values <- predict(model, newdata = data.frame('1:nrow(surrounding_data
 
 # Fill the missing values in the original data
 data$Power[4603:4613] <- predicted_values
+```
 
+```
 # Step 3: Data Visualization
 # Plot Power over time
 ggplot(data, aes(x = Timestamp, y = Power)) + 
@@ -47,6 +53,7 @@ ggplot(data, aes(x = Timestamp, y = Power)) +
 ggplot(data, aes(x = Timestamp, y = Temp)) + 
   geom_line(color = 'red') + 
   labs(title = "Temperature Over Time", x = "Time", y = "Temperature (°C)")
+```
 
 # Step 4: Data Splitting
 train_size <- floor(0.8 * nrow(data))
