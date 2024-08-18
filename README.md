@@ -1,3 +1,6 @@
+# Time Series Forecasting
+
+## Data preparation
 ```
 # Load necessary libraries
 library(readxl)
@@ -113,8 +116,8 @@ rmse_results <- data.frame(
 print(rmse_results)
 ```
 
-###Check Model Diagnostics
-Before finalizing the model, it’s also useful to check the residuals of the model to ensure that the model is fitting the data well:
+Check Model Diagnostics :
+Before finalizing the model, checking the residuals of the model to ensure that the model is fitting the data well:
 ```
 # Plot residuals
 checkresiduals(ets_model)
